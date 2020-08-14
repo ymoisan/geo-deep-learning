@@ -10,7 +10,7 @@ import torch
 # import torch should be first. Unclear issue, mentioned here: https://github.com/pytorch/pytorch/issues/2083
 from torch import nn
 from torchvision import models
-from utils import load_from_checkpoint
+from utils.utils import load_from_checkpoint
 
 
 def conv3x3(in_, out):
@@ -96,7 +96,7 @@ class UNet11(nn.Module):
         return self.final(dec1)
 
 
-def ternausnet(num_classes, state_dict_path):
+def ternausnet(num_classes):
     """
     pretrained:
             False - no pre-trained network is used
@@ -105,5 +105,4 @@ def ternausnet(num_classes, state_dict_path):
                 Kaggle: Carvana dataset https://www.kaggle.com/c/carvana-image-masking-challenge
     """
     model = UNet11(num_classes)
-    model = load_from_checkpoint(state_dict_path, model)
     return model
