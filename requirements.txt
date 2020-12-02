@@ -1,8 +1,10 @@
+pip 20.1.1
 torch
 torchvision
 pillow=6.2.1
 numpy
 ruamel_yaml
+mlflow
 fiona
 nvidia-ml-py3
 boto3
